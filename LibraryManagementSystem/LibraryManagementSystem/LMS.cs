@@ -24,7 +24,9 @@ namespace LibraryManagementSystem
 
         private void roleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Role obj = new Role();
+            obj.MdiParent = this;
+            obj.Show();
         }
     }
 }

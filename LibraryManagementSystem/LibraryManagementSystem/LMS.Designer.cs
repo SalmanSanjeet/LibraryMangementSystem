@@ -188,6 +188,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "LMS";
             this.Text = "LMS";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LMS_FormClosed);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
