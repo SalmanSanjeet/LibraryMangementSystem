@@ -26,7 +26,24 @@ namespace LibraryManagementSystem
         {
             Role obj = new Role();
             obj.MdiParent = this;
+            obj.StartPosition = FormStartPosition.CenterScreen;
             obj.Show();
+        }
+
+        private void profileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Profile_Master pmObj = new Profile_Master();
+            pmObj.MdiParent = this;
+            pmObj.StartPosition = FormStartPosition.CenterScreen;
+            pmObj.Show();
+        }
+
+        private void memberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Member_Master mmObj = new Member_Master();
+            mmObj.MdiParent = this;
+            mmObj.StartPosition = FormStartPosition.CenterScreen;
+            mmObj.Show();
         }
     }
 }
