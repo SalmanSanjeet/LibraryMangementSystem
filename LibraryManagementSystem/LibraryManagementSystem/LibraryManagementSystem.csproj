@@ -70,6 +70,12 @@
     <Compile Include="Member_Master.Designer.cs">
       <DependentUpon>Member_Master.cs</DependentUpon>
     </Compile>
+    <Compile Include="Plan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan.Designer.cs">
+      <DependentUpon>Plan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Profile_Master.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Member_Master.resx">
       <DependentUpon>Member_Master.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan.resx">
+      <DependentUpon>Plan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile_Master.resx">
       <DependentUpon>Profile_Master.cs</DependentUpon>

@@ -45,5 +45,13 @@ namespace LibraryManagementSystem
             mmObj.StartPosition = FormStartPosition.CenterScreen;
             mmObj.Show();
         }
+
+        private void planToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Plan pObj = new Plan();
+            pObj.MdiParent = this;
+            pObj.StartPosition = FormStartPosition.CenterScreen;
+            pObj.Show();
+        }
     }
 }
