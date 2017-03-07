@@ -143,6 +143,7 @@
             this.rackToolStripMenuItem.Name = "rackToolStripMenuItem";
             this.rackToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.rackToolStripMenuItem.Text = "Rack";
+            this.rackToolStripMenuItem.Click += new System.EventHandler(this.rackToolStripMenuItem_Click);
             // 
             // sectionToolStripMenuItem
             // 

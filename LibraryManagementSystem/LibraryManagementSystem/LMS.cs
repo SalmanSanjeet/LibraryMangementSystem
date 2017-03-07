@@ -22,36 +22,36 @@ namespace LibraryManagementSystem
             Application.Exit();
         }
 
+        private void formToolStripMenuItem_Click_Initial(Form formObj)
+        {
+            formObj.MdiParent = this;
+            formObj.StartPosition = FormStartPosition.CenterScreen;
+            formObj.Show();
+        }
+
         private void roleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Role obj = new Role();
-            obj.MdiParent = this;
-            obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            formToolStripMenuItem_Click_Initial(new Role());
         }
 
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Profile_Master pmObj = new Profile_Master();
-            pmObj.MdiParent = this;
-            pmObj.StartPosition = FormStartPosition.CenterScreen;
-            pmObj.Show();
+            formToolStripMenuItem_Click_Initial(new Profile_Master());
         }
 
         private void memberToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Member_Master mmObj = new Member_Master();
-            mmObj.MdiParent = this;
-            mmObj.StartPosition = FormStartPosition.CenterScreen;
-            mmObj.Show();
+            formToolStripMenuItem_Click_Initial(new Member_Master());
         }
 
         private void planToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Plan pObj = new Plan();
-            pObj.MdiParent = this;
-            pObj.StartPosition = FormStartPosition.CenterScreen;
-            pObj.Show();
+            formToolStripMenuItem_Click_Initial(new Plan());
+        }
+
+        private void rackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToolStripMenuItem_Click_Initial(new Rack());
         }
     }
 }

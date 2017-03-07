@@ -14,3 +14,4 @@ E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementS
 E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Role.resources
 E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Profile_Master.resources
 E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Plan.resources
+E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Rack.resources
