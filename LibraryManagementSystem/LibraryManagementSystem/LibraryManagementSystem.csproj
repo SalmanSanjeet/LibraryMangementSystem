@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookInRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookInRegister.Designer.cs">
+      <DependentUpon>BookInRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="Change_Password.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase.Designer.cs">
+      <DependentUpon>Purchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rack.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,12 +108,21 @@
     <Compile Include="Role.Designer.cs">
       <DependentUpon>Role.cs</DependentUpon>
     </Compile>
+    <Compile Include="Section.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Section.Designer.cs">
+      <DependentUpon>Section.cs</DependentUpon>
+    </Compile>
     <Compile Include="Section_Rack_Map.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Section_Rack_Map.Designer.cs">
       <DependentUpon>Section_Rack_Map.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BookInRegister.resx">
+      <DependentUpon>BookInRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Change_Password.resx">
       <DependentUpon>Change_Password.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,11 +150,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Purchase.resx">
+      <DependentUpon>Purchase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rack.resx">
       <DependentUpon>Rack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Role.resx">
       <DependentUpon>Role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Section.resx">
+      <DependentUpon>Section.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Section_Rack_Map.resx">
       <DependentUpon>Section_Rack_Map.cs</DependentUpon>

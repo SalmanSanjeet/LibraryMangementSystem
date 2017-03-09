@@ -53,5 +53,25 @@ namespace LibraryManagementSystem
         {
             formToolStripMenuItem_Click_Initial(new Rack());
         }
+
+        private void sectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToolStripMenuItem_Click_Initial(new Section());
+        }
+
+        private void sectionRackMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToolStripMenuItem_Click_Initial(new Section_Rack_Map());
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToolStripMenuItem_Click_Initial(new Change_Password());
+        }
+
+        private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToolStripMenuItem_Click_Initial(new Purchase());
+        }
     }
 }
