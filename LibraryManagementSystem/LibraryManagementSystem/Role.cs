@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace LibraryManagementSystem
 {
@@ -15,6 +16,36 @@ namespace LibraryManagementSystem
         public Role()
         {
             InitializeComponent();
+        }
+
+        private void Role_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            bookIDTextbox.Clear();
+            bookNameTextbox.Clear();
+            statusCombobox.SelectedIndex = -1;
+            bookNameTextbox.Focus();
+            CreateNew();
+        }
+
+        void CreateNew()
+        {
+            Connection conn = new Connection();
+            MySqlDataAdapter mda = new MySqlDataAdapter("Proc_New_Role", conn.ActiveCon());
+            mda.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            //DataTable dt = new DataTable();
+            //mda.Fill(dt);
+            DataSet ds = new DataSet();
+            mda.Fill(ds);
+            //bookIDTextbox.Text = dt.Rows[0][0].ToString();
+            DataTableCollection dc = ds.Tables;
+            bookIDTextbox.Text = dc[dc.Count - 1].Rows[0][0].ToString();
+
         }
     }
 }

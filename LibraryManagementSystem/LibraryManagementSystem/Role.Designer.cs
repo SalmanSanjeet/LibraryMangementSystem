@@ -33,12 +33,12 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.bookIDTextbox = new System.Windows.Forms.TextBox();
             this.bookNameTextbox = new System.Windows.Forms.TextBox();
-            this.statusTextbox = new System.Windows.Forms.TextBox();
             this.newButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.roleDataGridView = new System.Windows.Forms.DataGridView();
+            this.statusCombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.roleDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +71,7 @@
             // 
             // bookIDTextbox
             // 
+            this.bookIDTextbox.Enabled = false;
             this.bookIDTextbox.Location = new System.Drawing.Point(111, 32);
             this.bookIDTextbox.Name = "bookIDTextbox";
             this.bookIDTextbox.Size = new System.Drawing.Size(214, 21);
@@ -83,13 +84,6 @@
             this.bookNameTextbox.Size = new System.Drawing.Size(214, 21);
             this.bookNameTextbox.TabIndex = 4;
             // 
-            // statusTextbox
-            // 
-            this.statusTextbox.Location = new System.Drawing.Point(111, 101);
-            this.statusTextbox.Name = "statusTextbox";
-            this.statusTextbox.Size = new System.Drawing.Size(214, 21);
-            this.statusTextbox.TabIndex = 5;
-            // 
             // newButton
             // 
             this.newButton.Location = new System.Drawing.Point(392, 32);
@@ -98,6 +92,7 @@
             this.newButton.TabIndex = 6;
             this.newButton.Text = "New";
             this.newButton.UseVisualStyleBackColor = true;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
             // button2
             // 
@@ -135,17 +130,28 @@
             this.roleDataGridView.Size = new System.Drawing.Size(559, 184);
             this.roleDataGridView.TabIndex = 10;
             // 
+            // statusCombobox
+            // 
+            this.statusCombobox.FormattingEnabled = true;
+            this.statusCombobox.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
+            this.statusCombobox.Location = new System.Drawing.Point(111, 104);
+            this.statusCombobox.Name = "statusCombobox";
+            this.statusCombobox.Size = new System.Drawing.Size(214, 20);
+            this.statusCombobox.TabIndex = 11;
+            // 
             // Role
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 388);
+            this.Controls.Add(this.statusCombobox);
             this.Controls.Add(this.roleDataGridView);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.newButton);
-            this.Controls.Add(this.statusTextbox);
             this.Controls.Add(this.bookNameTextbox);
             this.Controls.Add(this.bookIDTextbox);
             this.Controls.Add(this.statusLabel);
@@ -153,6 +159,7 @@
             this.Controls.Add(this.bookIDLabel);
             this.Name = "Role";
             this.Text = "Role";
+            this.Load += new System.EventHandler(this.Role_Load);
             ((System.ComponentModel.ISupportInitialize)(this.roleDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,11 +173,11 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.TextBox bookIDTextbox;
         private System.Windows.Forms.TextBox bookNameTextbox;
-        private System.Windows.Forms.TextBox statusTextbox;
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.DataGridView roleDataGridView;
+        private System.Windows.Forms.ComboBox statusCombobox;
     }
 }

@@ -17,3 +17,6 @@ E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementS
 E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Rack.resources
 E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Section.resources
 E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Purchase.resources
+E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\MySql.Data.dll
+E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\MySql.Data.xml
+E:\MyProjects\LibraryManagementSystem\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.BookInRegister.resources

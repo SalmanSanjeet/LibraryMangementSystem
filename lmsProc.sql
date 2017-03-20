@@ -153,3 +153,45 @@ foreign key(Book_Id) references Book_Master(Book_Id)
 );
 
 
+insert into profile_master(pro_user_id, pro_name, pro_email, pro_mobile, pro_password, pro_address, pro_role, pro_status)
+values ('admin', 'Admin', 'aa@gmail.com', '', 'pass', '', 'Admin', 'Actprofile_masterive');
+
+select * from profile_master;
+
+insert into role_master(role_id, role, role_status)
+values ('BK00001', 'Math Book', 'Inactive');
+
+
+
+
+
+-- Stored Procedure for 'New Role'
+
+drop procedure if exists Proc_New_Role;
+delimiter $$
+create procedure Proc_New_Role()
+begin
+	-- declare @MaxNum int;
+    -- declare @Num varchar(50);
+	
+	select (@MaxNum := ISNULL(right(role_id, 9) * 1) + 1) as 'MaxNo' from role_master;
+    select CONCAT('BK', right(concat('00000', cast(@MaxNum as CHAR)), 5)) as 'BookID';
+end $$
+delimiter ;
+call Proc_New_Role();
+
+
+select * from role_master
+
+
+
+
+
+
+
+
+
+
+
+
+

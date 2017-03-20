@@ -13,20 +13,9 @@ namespace LibraryManagementSystem
 {
     public partial class Login : Form
     {
-        MySqlConnection msc = new MySqlConnection();
         public Login()
         {
             InitializeComponent();
-
-            string serverStr = "localhost";
-            string uidStr = "root";
-            string pwdStr = "toor";
-            string databaseStr = "lmsdb";
-
-            msc.ConnectionString = "server=" + serverStr + ";" + 
-                                   "uid=" + uidStr + ";" + 
-                                   "pwd=" + pwdStr + ";" + 
-                                   "database=" + databaseStr + ";";
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -41,10 +30,22 @@ namespace LibraryManagementSystem
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            MySqlDataAdapter sda = new MySqlDataAdapter("Select Pro_User_ID, Pro_Password from Profile_Master Where Pro_User_Id=" + usernameTextbox.Text + "", msc);
-            LMS objLMS = new LMS();
-            objLMS.Show();
-            Hide();
+            Connection con = new Connection();
+            MySqlDataAdapter sda = new MySqlDataAdapter("Select * From Profile_Master Where Pro_User_Id='" + usernameTextbox.Text + "' and Pro_Password='" + passwordTextbox.Text + "'", con.ActiveCon());
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            if(1 == dt.Rows.Count)
+            {
+                LMS objLMS = new LMS();
+                objLMS.Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
