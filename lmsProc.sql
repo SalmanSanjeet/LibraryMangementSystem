@@ -171,17 +171,14 @@ drop procedure if exists Proc_New_Role;
 delimiter $$
 create procedure Proc_New_Role()
 begin
-	-- declare @MaxNum int;
-    -- declare @Num varchar(50);
-	
-	select (@MaxNum := ISNULL(right(role_id, 9) * 1) + 1) as 'MaxNo' from role_master;
-    select CONCAT('BK', right(concat('00000', cast(@MaxNum as CHAR)), 5)) as 'BookID';
+	select @MaxNum := ifnull(max(right(role_id, 5) * 1), 0) + 1 as 'MaxNo' from role_master;
+    select CONCAT('BK', right(concat('00000', cast(@MaxNum as CHAR)), 5)) as 'RoleID';
 end $$
 delimiter ;
 call Proc_New_Role();
 
+select * from role_master;
 
-select * from role_master
 
 
 
