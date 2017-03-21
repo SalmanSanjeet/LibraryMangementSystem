@@ -88,6 +88,12 @@ namespace LibraryManagementSystem
                 "where role_id = '" + bookIDTextbox.Text +"'");
         }
 
+        private void DeleteRecords()
+        {
+            cmdSQLExecutor("delete from lmsdb.role_master " + 
+                "where role_id = '" + bookIDTextbox.Text + "'");
+        }
+
         private void ViewGrid()
         {
             Connection conn = new Connection();
@@ -103,6 +109,8 @@ namespace LibraryManagementSystem
                 roleDataGridView.Rows[n].Cells[2].Value = item["Role"].ToString();
                 roleDataGridView.Rows[n].Cells[3].Value = item["Role_Status"].ToString();
             }
+
+            rowCountLabel.Text = "Row Count: " + dt.Rows.Count.ToString();
         }
 
         private void roleDataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -116,6 +124,12 @@ namespace LibraryManagementSystem
         private void updateButton_Click(object sender, EventArgs e)
         {
             UpdateRecords();
+            ViewGrid();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteRecords();
             ViewGrid();
         }
     }

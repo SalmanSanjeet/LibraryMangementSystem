@@ -34,15 +34,16 @@
             this.bookIDTextbox = new System.Windows.Forms.TextBox();
             this.bookNameTextbox = new System.Windows.Forms.TextBox();
             this.newButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.roleDataGridView = new System.Windows.Forms.DataGridView();
-            this.statusCombobox = new System.Windows.Forms.ComboBox();
             this.NumTag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusCombobox = new System.Windows.Forms.ComboBox();
+            this.rowCountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.roleDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,14 +99,15 @@
             this.newButton.UseVisualStyleBackColor = true;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
-            // button2
+            // deleteButton
             // 
-            this.button2.Location = new System.Drawing.Point(495, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 34);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
+            this.deleteButton.Location = new System.Drawing.Point(495, 32);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(97, 34);
+            this.deleteButton.TabIndex = 7;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // updateButton
             // 
@@ -145,17 +147,6 @@
             this.roleDataGridView.TabIndex = 10;
             this.roleDataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.roleDataGridView_MouseDoubleClick);
             // 
-            // statusCombobox
-            // 
-            this.statusCombobox.FormattingEnabled = true;
-            this.statusCombobox.Items.AddRange(new object[] {
-            "Active",
-            "Inactive"});
-            this.statusCombobox.Location = new System.Drawing.Point(111, 104);
-            this.statusCombobox.Name = "statusCombobox";
-            this.statusCombobox.Size = new System.Drawing.Size(214, 20);
-            this.statusCombobox.TabIndex = 11;
-            // 
             // NumTag
             // 
             this.NumTag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -183,16 +174,37 @@
             this.Role_Status.Name = "Role_Status";
             this.Role_Status.Width = 96;
             // 
+            // statusCombobox
+            // 
+            this.statusCombobox.FormattingEnabled = true;
+            this.statusCombobox.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
+            this.statusCombobox.Location = new System.Drawing.Point(111, 104);
+            this.statusCombobox.Name = "statusCombobox";
+            this.statusCombobox.Size = new System.Drawing.Size(214, 20);
+            this.statusCombobox.TabIndex = 11;
+            // 
+            // rowCountLabel
+            // 
+            this.rowCountLabel.AutoSize = true;
+            this.rowCountLabel.Location = new System.Drawing.Point(493, 340);
+            this.rowCountLabel.Name = "rowCountLabel";
+            this.rowCountLabel.Size = new System.Drawing.Size(77, 12);
+            this.rowCountLabel.TabIndex = 12;
+            this.rowCountLabel.Text = "Row Count: 0";
+            // 
             // Role
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 388);
+            this.Controls.Add(this.rowCountLabel);
             this.Controls.Add(this.statusCombobox);
             this.Controls.Add(this.roleDataGridView);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.updateButton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.newButton);
             this.Controls.Add(this.bookNameTextbox);
             this.Controls.Add(this.bookIDTextbox);
@@ -216,7 +228,7 @@
         private System.Windows.Forms.TextBox bookIDTextbox;
         private System.Windows.Forms.TextBox bookNameTextbox;
         private System.Windows.Forms.Button newButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.DataGridView roleDataGridView;
@@ -225,5 +237,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Role_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role_Status;
+        private System.Windows.Forms.Label rowCountLabel;
     }
 }
