@@ -63,6 +63,7 @@
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Size = new System.Drawing.Size(230, 21);
             this.usernameTextbox.TabIndex = 2;
+            this.usernameTextbox.Text = "Admin";
             // 
             // passwordTextbox
             // 
@@ -70,6 +71,7 @@
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(230, 21);
             this.passwordTextbox.TabIndex = 3;
+            this.passwordTextbox.Text = "pass";
             // 
             // exitButton
             // 

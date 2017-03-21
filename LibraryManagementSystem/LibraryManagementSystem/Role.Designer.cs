@@ -39,6 +39,10 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.roleDataGridView = new System.Windows.Forms.DataGridView();
             this.statusCombobox = new System.Windows.Forms.ComboBox();
+            this.NumTag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.roleDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +115,7 @@
             this.updateButton.TabIndex = 8;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // saveButton
             // 
@@ -124,12 +129,21 @@
             // 
             // roleDataGridView
             // 
+            this.roleDataGridView.AllowUserToAddRows = false;
             this.roleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.roleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NumTag,
+            this.Role_ID,
+            this.Role_Name,
+            this.Role_Status});
             this.roleDataGridView.Location = new System.Drawing.Point(33, 143);
             this.roleDataGridView.Name = "roleDataGridView";
+            this.roleDataGridView.RowHeadersVisible = false;
             this.roleDataGridView.RowTemplate.Height = 23;
+            this.roleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.roleDataGridView.Size = new System.Drawing.Size(559, 184);
             this.roleDataGridView.TabIndex = 10;
+            this.roleDataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.roleDataGridView_MouseDoubleClick);
             // 
             // statusCombobox
             // 
@@ -141,6 +155,33 @@
             this.statusCombobox.Name = "statusCombobox";
             this.statusCombobox.Size = new System.Drawing.Size(214, 20);
             this.statusCombobox.TabIndex = 11;
+            // 
+            // NumTag
+            // 
+            this.NumTag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NumTag.HeaderText = "#";
+            this.NumTag.Name = "NumTag";
+            this.NumTag.Width = 36;
+            // 
+            // Role_ID
+            // 
+            this.Role_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Role_ID.HeaderText = "Role_ID";
+            this.Role_ID.Name = "Role_ID";
+            this.Role_ID.Width = 72;
+            // 
+            // Role_Name
+            // 
+            this.Role_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Role_Name.HeaderText = "Role_Name";
+            this.Role_Name.Name = "Role_Name";
+            // 
+            // Role_Status
+            // 
+            this.Role_Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Role_Status.HeaderText = "Role_Status";
+            this.Role_Status.Name = "Role_Status";
+            this.Role_Status.Width = 96;
             // 
             // Role
             // 
@@ -180,5 +221,9 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.DataGridView roleDataGridView;
         private System.Windows.Forms.ComboBox statusCombobox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumTag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role_Status;
     }
 }
