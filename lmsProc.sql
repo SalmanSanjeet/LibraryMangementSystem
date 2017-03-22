@@ -152,6 +152,14 @@ foreign key(Mem_Id) references Member_Master(Mem_Id),
 foreign key(Book_Id) references Book_Master(Book_Id)
 );
 
+create table Error_Log
+(
+Err_Id int primary key,
+Err_Date datetime,
+Err_Page varchar(50),
+Err_Text varchar(300)
+);
+
 
 insert into profile_master(pro_user_id, pro_name, pro_email, pro_mobile, pro_password, pro_address, pro_role, pro_status)
 values ('admin', 'Admin', 'aa@gmail.com', '', 'pass', '', 'Admin', 'Actprofile_masterive');

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem
+namespace LibraryManagementSystem.UI
 {
-    public partial class Section : Form
+    public partial class Plan : Form
     {
-        public Section()
+        public Plan()
         {
             InitializeComponent();
         }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem
+namespace LibraryManagementSystem.UI
 {
-    public partial class Profile_Master : Form
+    public partial class BookInRegister : Form
     {
-        public Profile_Master()
+        public BookInRegister()
         {
             InitializeComponent();
         }

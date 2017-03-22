@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem
+﻿namespace LibraryManagementSystem.UI
 {
     partial class Change_Password
     {
@@ -119,6 +119,7 @@
             this.Controls.Add(this.usernameLabel);
             this.Name = "Change_Password";
             this.Text = "Change Password";
+            this.Load += new System.EventHandler(this.Change_Password_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

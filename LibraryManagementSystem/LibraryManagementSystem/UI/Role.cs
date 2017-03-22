@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace LibraryManagementSystem
+namespace LibraryManagementSystem.UI
 {
     public partial class Role : Form
     {
@@ -39,8 +39,9 @@ namespace LibraryManagementSystem
         private void CreateNew()
         {
             initializeNewInput();
-            Connection conn = new Connection();
-            MySqlDataAdapter mda = new MySqlDataAdapter("Proc_New_Role", conn.ActiveCon());
+
+            string newRoleProcName = "Proc_New_Role";
+            MySqlDataAdapter mda = new DAL.Role().ActiveMDA(newRoleProcName);
             mda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             // Handle multiple sql resutls
@@ -63,9 +64,14 @@ namespace LibraryManagementSystem
 
         private void cmdSQLExecutor(string cmdStr)
         {
-            Connection conn = new Connection();
-            MySqlCommand cmd = new MySqlCommand(cmdStr, conn.ActiveCon());
-            cmd.ExecuteNonQuery();
+            if(validate())
+            {
+                MySqlCommand cmd = new MySqlCommand(cmdStr, new DAL.Connection().ActiveCon());
+                cmd.ExecuteNonQuery();
+            } else
+            {
+                MessageBox.Show("Please check all the fields!");
+            }
         }
 
         private void AddRecords()
@@ -96,7 +102,7 @@ namespace LibraryManagementSystem
 
         private void ViewGrid()
         {
-            Connection conn = new Connection();
+            DAL.Connection conn = new DAL.Connection();
             MySqlDataAdapter mda = new MySqlDataAdapter("select * from role_master", conn.ActiveCon());
             DataTable dt = new DataTable();
             mda.Fill(dt);
@@ -131,6 +137,21 @@ namespace LibraryManagementSystem
         {
             DeleteRecords();
             ViewGrid();
+        }
+
+        private bool validate()
+        {
+            bool res = true;
+
+            if(0 == bookNameTextbox.Text.Length)
+            {
+                res = false;
+            } else if(-1 == statusCombobox.SelectedIndex)
+            {
+                res = false;
+            }
+
+            return res;
         }
     }
 }

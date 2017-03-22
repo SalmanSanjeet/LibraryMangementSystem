@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem
+﻿namespace LibraryManagementSystem.UI
 {
     partial class Section_Rack_Map
     {

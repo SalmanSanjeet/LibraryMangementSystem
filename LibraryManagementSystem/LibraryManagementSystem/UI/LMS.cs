@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem
+namespace LibraryManagementSystem.UI
 {
     public partial class LMS : Form
     {

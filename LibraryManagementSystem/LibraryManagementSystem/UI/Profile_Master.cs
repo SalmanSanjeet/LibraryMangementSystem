@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem
+namespace LibraryManagementSystem.UI
 {
-    public partial class Purchase : Form
+    public partial class Profile_Master : Form
     {
-        public Purchase()
+        public Profile_Master()
         {
             InitializeComponent();
         }

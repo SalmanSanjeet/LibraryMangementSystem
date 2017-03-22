@@ -47,100 +47,102 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookInRegister.cs">
+    <Compile Include="BLL\Role.cs" />
+    <Compile Include="DAL\Role.cs" />
+    <Compile Include="UI\BookInRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookInRegister.Designer.cs">
+    <Compile Include="UI\BookInRegister.Designer.cs">
       <DependentUpon>BookInRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Change_Password.cs">
+    <Compile Include="UI\Change_Password.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Change_Password.Designer.cs">
+    <Compile Include="UI\Change_Password.Designer.cs">
       <DependentUpon>Change_Password.cs</DependentUpon>
     </Compile>
-    <Compile Include="Connection.cs" />
-    <Compile Include="LMS.cs">
+    <Compile Include="DAL\Connection.cs" />
+    <Compile Include="UI\LMS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LMS.Designer.cs">
+    <Compile Include="UI\LMS.Designer.cs">
       <DependentUpon>LMS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="UI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Member_Master.cs">
+    <Compile Include="UI\Member_Master.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Member_Master.Designer.cs">
+    <Compile Include="UI\Member_Master.Designer.cs">
       <DependentUpon>Member_Master.cs</DependentUpon>
     </Compile>
-    <Compile Include="Plan.cs">
+    <Compile Include="UI\Plan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Plan.Designer.cs">
+    <Compile Include="UI\Plan.Designer.cs">
       <DependentUpon>Plan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile_Master.cs">
+    <Compile Include="UI\Profile_Master.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile_Master.Designer.cs">
+    <Compile Include="UI\Profile_Master.Designer.cs">
       <DependentUpon>Profile_Master.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Purchase.cs">
+    <Compile Include="UI\Purchase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Purchase.Designer.cs">
+    <Compile Include="UI\Purchase.Designer.cs">
       <DependentUpon>Purchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rack.cs">
+    <Compile Include="UI\Rack.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Rack.Designer.cs">
+    <Compile Include="UI\Rack.Designer.cs">
       <DependentUpon>Rack.cs</DependentUpon>
     </Compile>
-    <Compile Include="Role.cs">
+    <Compile Include="UI\Role.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Role.Designer.cs">
+    <Compile Include="UI\Role.Designer.cs">
       <DependentUpon>Role.cs</DependentUpon>
     </Compile>
-    <Compile Include="Section.cs">
+    <Compile Include="UI\Section.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Section.Designer.cs">
+    <Compile Include="UI\Section.Designer.cs">
       <DependentUpon>Section.cs</DependentUpon>
     </Compile>
-    <Compile Include="Section_Rack_Map.cs">
+    <Compile Include="UI\Section_Rack_Map.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Section_Rack_Map.Designer.cs">
+    <Compile Include="UI\Section_Rack_Map.Designer.cs">
       <DependentUpon>Section_Rack_Map.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BookInRegister.resx">
+    <EmbeddedResource Include="UI\BookInRegister.resx">
       <DependentUpon>BookInRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Change_Password.resx">
+    <EmbeddedResource Include="UI\Change_Password.resx">
       <DependentUpon>Change_Password.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LMS.resx">
+    <EmbeddedResource Include="UI\LMS.resx">
       <DependentUpon>LMS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Member_Master.resx">
+    <EmbeddedResource Include="UI\Member_Master.resx">
       <DependentUpon>Member_Master.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Plan.resx">
+    <EmbeddedResource Include="UI\Plan.resx">
       <DependentUpon>Plan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile_Master.resx">
+    <EmbeddedResource Include="UI\Profile_Master.resx">
       <DependentUpon>Profile_Master.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -152,19 +154,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Purchase.resx">
+    <EmbeddedResource Include="UI\Purchase.resx">
       <DependentUpon>Purchase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rack.resx">
+    <EmbeddedResource Include="UI\Rack.resx">
       <DependentUpon>Rack.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Role.resx">
+    <EmbeddedResource Include="UI\Role.resx">
       <DependentUpon>Role.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Section.resx">
+    <EmbeddedResource Include="UI\Section.resx">
       <DependentUpon>Section.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Section_Rack_Map.resx">
+    <EmbeddedResource Include="UI\Section_Rack_Map.resx">
       <DependentUpon>Section_Rack_Map.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -180,6 +182,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

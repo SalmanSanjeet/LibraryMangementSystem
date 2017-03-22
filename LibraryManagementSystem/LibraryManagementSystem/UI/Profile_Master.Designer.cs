@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem
+﻿namespace LibraryManagementSystem.UI
 {
     partial class Profile_Master
     {

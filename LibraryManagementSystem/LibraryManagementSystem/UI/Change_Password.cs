@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem
+namespace LibraryManagementSystem.UI
 {
     public partial class Change_Password : Form
     {
         public Change_Password()
         {
             InitializeComponent();
+        }
+
+        private void Change_Password_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

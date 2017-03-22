@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem
+namespace LibraryManagementSystem.UI
 {
-    public partial class Member_Master : Form
+    public partial class Section_Rack_Map : Form
     {
-        public Member_Master()
+        public Section_Rack_Map()
         {
             InitializeComponent();
         }
