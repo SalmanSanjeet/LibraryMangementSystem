@@ -70,33 +70,18 @@ namespace LibraryManagementSystem.UI
             }
         }
 
-        //private void UpdateRecords()
+        //private void DeleteRecords()
         //{
         //    if (validate())
         //    {
-        //        dalRole.executeSQL("update lmsdb.role_master " + 
-        //            "set role = '" + bookNameTextbox.Text +"', " + 
-        //            "role_status = '" + statusCombobox.Text +"' " + 
-        //            "where role_id = '" + bookIDTextbox.Text +"'");
+        //        dalRole.executeSQLCommand("delete from lmsdb.role_master " + 
+        //            "where role_id = '" + bookIDTextbox.Text + "'");
         //    }
         //    else
         //    {
         //        MessageBox.Show("Please check all the fields!");
         //    }
         //}
-
-        private void DeleteRecords()
-        {
-            if (validate())
-            {
-                dalRole.executeSQLCommand("delete from lmsdb.role_master " + 
-                    "where role_id = '" + bookIDTextbox.Text + "'");
-            }
-            else
-            {
-                MessageBox.Show("Please check all the fields!");
-            }
-        }
 
         private void ViewGrid()
         {
@@ -138,7 +123,10 @@ namespace LibraryManagementSystem.UI
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            DeleteRecords();
+            string deleteCMD = "delete from lmsdb.role_master " +
+                        "where role_id = '" + bookIDTextbox.Text + "'";
+
+            executeSQL(deleteCMD);
             ViewGrid();
         }
 
