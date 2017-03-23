@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace LibraryManagementSystem.UI
 {
@@ -51,51 +50,59 @@ namespace LibraryManagementSystem.UI
             ViewGrid();
         }
 
-        private void cmdSQLExecutor(string cmdStr)
+        private void AddRecords()
         {
-            if(validate())
+            if (validate())
             {
-                MySqlCommand cmd = new MySqlCommand(cmdStr, new DAL.Connection().ActiveCon());
-                cmd.ExecuteNonQuery();
-            } else
+                dalRole.cmdSQLExecutor("insert into lmsdb.role_master" +
+                " (role_id " +
+                ", role" +
+                ", role_status)" +
+                "values" +
+                "('" + bookIDTextbox.Text + "', " +
+                "'" + bookNameTextbox.Text + "', " +
+                "'" + statusCombobox.Text + "')");
+            }
+            else
             {
                 MessageBox.Show("Please check all the fields!");
             }
         }
 
-        private void AddRecords()
-        {
-            cmdSQLExecutor("insert into lmsdb.role_master" +
-            " (role_id " +
-            ", role" +
-            ", role_status)" +
-            "values" +
-            "('" + bookIDTextbox.Text + "', " +
-            "'" + bookNameTextbox.Text + "', " +
-            "'" + statusCombobox.Text + "')");
-        }
-
         private void UpdateRecords()
         {
-            cmdSQLExecutor("update lmsdb.role_master " + 
-                "set role = '" + bookNameTextbox.Text +"', " + 
-                "role_status = '" + statusCombobox.Text +"' " + 
-                "where role_id = '" + bookIDTextbox.Text +"'");
+            if (validate())
+            {
+                dalRole.cmdSQLExecutor("update lmsdb.role_master " + 
+                    "set role = '" + bookNameTextbox.Text +"', " + 
+                    "role_status = '" + statusCombobox.Text +"' " + 
+                    "where role_id = '" + bookIDTextbox.Text +"'");
+            }
+            else
+            {
+                MessageBox.Show("Please check all the fields!");
+            }
         }
 
         private void DeleteRecords()
         {
-            cmdSQLExecutor("delete from lmsdb.role_master " + 
-                "where role_id = '" + bookIDTextbox.Text + "'");
+            if (validate())
+            {
+                dalRole.cmdSQLExecutor("delete from lmsdb.role_master " + 
+                    "where role_id = '" + bookIDTextbox.Text + "'");
+            }
+            else
+            {
+                MessageBox.Show("Please check all the fields!");
+            }
         }
 
         private void ViewGrid()
         {
-            DAL.Connection conn = new DAL.Connection();
-            MySqlDataAdapter mda = new MySqlDataAdapter("select * from role_master", conn.ActiveCon());
-            DataTable dt = new DataTable();
-            mda.Fill(dt);
+            DataTable dt = dalRole.getRoleDatabaseTable();
+
             roleDataGridView.Rows.Clear();
+
             foreach(DataRow item in dt.Rows)
             {
                 int n = roleDataGridView.Rows.Add();
