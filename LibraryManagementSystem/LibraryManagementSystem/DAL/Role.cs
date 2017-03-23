@@ -19,8 +19,8 @@ namespace LibraryManagementSystem.DAL
         private const string newRoleProcName = "Proc_New_Role";
 
         public string getNewRoleID()
-        {            
-            MySqlDataAdapter mda = new Connection().ActiveMDA(newRoleProcName);
+        {
+            MySqlDataAdapter mda = new MySqlDataAdapter(newRoleProcName, conn.ActiveCon());
             mda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             // Handle multiple sql resutls

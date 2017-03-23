@@ -43,30 +43,19 @@ namespace LibraryManagementSystem.UI
         
         private void saveButton_Click(object sender, EventArgs e)
         {
-            AddRecords();
-            MessageBox.Show("Record inserted successfully!");
-
-            resetInputUI();
-            ViewGrid();
-        }
-
-        private void AddRecords()
-        {
             if (validate())
             {
-                dalRole.cmdSQLExecutor("insert into lmsdb.role_master" +
-                " (role_id " +
-                ", role" +
-                ", role_status)" +
-                "values" +
-                "('" + bookIDTextbox.Text + "', " +
-                "'" + bookNameTextbox.Text + "', " +
-                "'" + statusCombobox.Text + "')");
+                bllRole.AddRecords(bookIDTextbox.Text, bookNameTextbox.Text, statusCombobox.Text);
             }
             else
             {
                 MessageBox.Show("Please check all the fields!");
             }
+
+            MessageBox.Show("Record inserted successfully!");
+
+            resetInputUI();
+            ViewGrid();
         }
 
         private void UpdateRecords()
@@ -99,11 +88,11 @@ namespace LibraryManagementSystem.UI
 
         private void ViewGrid()
         {
-            DataTable dt = dalRole.getRoleDatabaseTable();
+            DataTable roleTable = dalRole.getRoleDatabaseTable();
 
             roleDataGridView.Rows.Clear();
 
-            foreach(DataRow item in dt.Rows)
+            foreach(DataRow item in roleTable.Rows)
             {
                 int n = roleDataGridView.Rows.Add();
                 roleDataGridView.Rows[n].Cells[0].Value = (n + 1).ToString();
@@ -112,12 +101,13 @@ namespace LibraryManagementSystem.UI
                 roleDataGridView.Rows[n].Cells[3].Value = item["Role_Status"].ToString();
             }
 
-            rowCountLabel.Text = "Row Count: " + dt.Rows.Count.ToString();
+            rowCountLabel.Text = "Row Count: " + roleTable.Rows.Count.ToString();
         }
 
         private void roleDataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             int n = roleDataGridView.SelectedRows[0].Index;
+
             bookIDTextbox.Text = roleDataGridView.Rows[n].Cells[1].Value.ToString();
             bookNameTextbox.Text = roleDataGridView.Rows[n].Cells[2].Value.ToString();
             statusCombobox.Text = roleDataGridView.Rows[n].Cells[3].Value.ToString();
