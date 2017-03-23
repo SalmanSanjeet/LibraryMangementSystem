@@ -13,7 +13,7 @@ namespace LibraryManagementSystem.BLL
 
         public void AddRecords(string roleID, string roleName, string roleStatus)
         {
-            dalRole.cmdSQLExecutor("insert into lmsdb.role_master" +
+            dalRole.executeSQLCommand("insert into lmsdb.role_master" +
                 " (role_id " +
                 ", role" +
                 ", role_status)" +
@@ -29,6 +29,14 @@ namespace LibraryManagementSystem.BLL
 
             DataTableCollection dc = dalRole.executeStoredProc(newRoleProcSQLName);
             return dc[dc.Count - 1].Rows[0][0].ToString();
+        }
+
+        public void UpdateRecords(string roleID, string roleName, string roleStatus)
+        {
+            dalRole.executeSQLCommand("update lmsdb.role_master " +
+                    "set role = '" + roleName + "', " +
+                    "role_status = '" + roleStatus + "' " +
+                    "where role_id = '" + roleID + "'");
         }
     }
 }

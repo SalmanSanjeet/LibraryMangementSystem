@@ -58,14 +58,11 @@ namespace LibraryManagementSystem.UI
             ViewGrid();
         }
 
-        private void UpdateRecords()
+        private void executeSQL(string cmd)
         {
-            if (validate())
+            if(validate())
             {
-                dalRole.cmdSQLExecutor("update lmsdb.role_master " + 
-                    "set role = '" + bookNameTextbox.Text +"', " + 
-                    "role_status = '" + statusCombobox.Text +"' " + 
-                    "where role_id = '" + bookIDTextbox.Text +"'");
+                dalRole.executeSQLCommand(cmd);
             }
             else
             {
@@ -73,11 +70,26 @@ namespace LibraryManagementSystem.UI
             }
         }
 
+        //private void UpdateRecords()
+        //{
+        //    if (validate())
+        //    {
+        //        dalRole.executeSQL("update lmsdb.role_master " + 
+        //            "set role = '" + bookNameTextbox.Text +"', " + 
+        //            "role_status = '" + statusCombobox.Text +"' " + 
+        //            "where role_id = '" + bookIDTextbox.Text +"'");
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Please check all the fields!");
+        //    }
+        //}
+
         private void DeleteRecords()
         {
             if (validate())
             {
-                dalRole.cmdSQLExecutor("delete from lmsdb.role_master " + 
+                dalRole.executeSQLCommand("delete from lmsdb.role_master " + 
                     "where role_id = '" + bookIDTextbox.Text + "'");
             }
             else
@@ -115,7 +127,12 @@ namespace LibraryManagementSystem.UI
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            UpdateRecords();
+            string updateCMD = "update lmsdb.role_master " +
+                    "set role = '" + bookNameTextbox.Text + "', " +
+                    "role_status = '" + statusCombobox.Text + "' " +
+                    "where role_id = '" + bookIDTextbox.Text + "'";
+
+            executeSQL(updateCMD);
             ViewGrid();
         }
 

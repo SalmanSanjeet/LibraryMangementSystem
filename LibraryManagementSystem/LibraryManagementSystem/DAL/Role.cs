@@ -30,7 +30,7 @@ namespace LibraryManagementSystem.DAL
             return dc;
         }
 
-        public void cmdSQLExecutor(string cmdStr)
+        public void executeSQLCommand(string cmdStr)
         {
             MySqlCommand cmd = new MySqlCommand(cmdStr, conn.ActiveCon());
             cmd.ExecuteNonQuery();
