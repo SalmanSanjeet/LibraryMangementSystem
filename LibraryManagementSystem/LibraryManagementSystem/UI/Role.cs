@@ -13,7 +13,7 @@ namespace LibraryManagementSystem.UI
     public partial class Role : Form
     {
         private BLL.Role bllRole = new BLL.Role();
-        private DAL.Role dalRole = new DAL.Role();
+        //private DAL.Role dalRole = new DAL.Role();
 
         public Role()
         {
@@ -72,7 +72,7 @@ namespace LibraryManagementSystem.UI
 
         private void ViewGrid()
         {
-            DataTable roleTable = dalRole.getRoleDatabaseTable();
+            DataTable roleTable = bllRole.getRoleTable();
 
             roleDataGridView.Rows.Clear();
 
@@ -106,7 +106,7 @@ namespace LibraryManagementSystem.UI
 
             if (validate())
             {
-                dalRole.executeSQLCommand(updateCMD);
+                bllRole.executeSQL(updateCMD);
             }
             else
             {
@@ -123,7 +123,7 @@ namespace LibraryManagementSystem.UI
 
             if (validate())
             {
-                dalRole.executeSQLCommand(deleteCMD);
+                bllRole.executeSQL(deleteCMD);
             }
             else
             {
