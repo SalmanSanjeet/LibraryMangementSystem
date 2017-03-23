@@ -10,7 +10,9 @@ namespace LibraryManagementSystem.BLL
     class Role
     {
         private DAL.Role dalRole = new DAL.Role();
-        
+
+        private const string newRoleProc = "Proc_New_Role";
+
         // Provide SQL interface from business layer.
         public DataTable getRoleTable()
         {
@@ -48,11 +50,17 @@ namespace LibraryManagementSystem.BLL
             return dalRole.executeSQLCommand(deleteCMD);
         }
 
-        // [[[[Need to be modified.]]]]
-        public string executeStoreProc(string cmd)
+        public string generateRoleID()
         {
-            DataTableCollection dc = dalRole.executeStoredProc(cmd);
-            return dc[dc.Count - 1].Rows[0][0].ToString();
+            DataTableCollection newRoleProcRes = executeStoreProc(newRoleProc);
+
+            // Choose the 2nd result table to generate new ID.
+            return newRoleProcRes[newRoleProcRes.Count - 1].Rows[0][0].ToString();
+        }
+        
+        private DataTableCollection executeStoreProc(string cmd)
+        {
+            return dalRole.executeStoredProc(cmd);
         }
     }
 }

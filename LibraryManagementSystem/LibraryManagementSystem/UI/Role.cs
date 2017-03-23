@@ -59,8 +59,7 @@ namespace LibraryManagementSystem.UI
             bookNameTextbox.Clear();
             statusCombobox.SelectedIndex = -1;
 
-            string newRoleProc = "Proc_New_Role";
-            bookIDTextbox.Text = bllRole.executeStoreProc(newRoleProc);
+            bookIDTextbox.Text = bllRole.generateRoleID();
             bookNameTextbox.Focus();  // Get ready for next typing
         }
 
@@ -77,16 +76,15 @@ namespace LibraryManagementSystem.UI
         
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (validate())
+            if (validate() &&
+                    bllRole.saveData(bookIDTextbox.Text, bookNameTextbox.Text, statusCombobox.Text))
             {
-                bllRole.saveData(bookIDTextbox.Text, bookNameTextbox.Text, statusCombobox.Text);
+                MessageBox.Show("Record inserted successfully!");
             }
             else
             {
                 MessageBox.Show("Please check all the fields!");
-            }
-
-            MessageBox.Show("Record inserted successfully!");
+            }            
 
             resetInputUI();
             ViewGrid();
