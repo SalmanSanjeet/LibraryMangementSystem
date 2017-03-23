@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace LibraryManagementSystem.BLL
 {
     class Role
     {
-        DAL.Role dalRole = new DAL.Role();
+        private DAL.Role dalRole = new DAL.Role();
 
         public void AddRecords(string roleID, string roleName, string roleStatus)
         {
@@ -20,6 +21,14 @@ namespace LibraryManagementSystem.BLL
                 "('" + roleID + "', " +
                 "'" + roleName + "', " +
                 "'" + roleStatus + "')");
+        }
+
+        public string getNewRoleID()
+        {
+            string newRoleProcSQLName = "Proc_New_Role";
+
+            DataTableCollection dc = dalRole.executeStoredProc(newRoleProcSQLName);
+            return dc[dc.Count - 1].Rows[0][0].ToString();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace LibraryManagementSystem.UI
             bookNameTextbox.Clear();
             statusCombobox.SelectedIndex = -1;
 
-            bookIDTextbox.Text = dalRole.getNewRoleID();  // Get new Role ID.
+            bookIDTextbox.Text = bllRole.getNewRoleID();
             bookNameTextbox.Focus();  // Get ready for next typing
         }
 

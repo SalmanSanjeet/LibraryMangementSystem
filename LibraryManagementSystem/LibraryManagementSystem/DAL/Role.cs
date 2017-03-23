@@ -18,16 +18,16 @@ namespace LibraryManagementSystem.DAL
         private Connection conn = new Connection();
         private const string newRoleProcName = "Proc_New_Role";
 
-        public string getNewRoleID()
+        public DataTableCollection executeStoredProc(string storedProc)
         {
-            MySqlDataAdapter mda = new MySqlDataAdapter(newRoleProcName, conn.ActiveCon());
+            MySqlDataAdapter mda = new MySqlDataAdapter(storedProc, conn.ActiveCon());
             mda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             // Handle multiple sql resutls
             DataSet ds = new DataSet();
             mda.Fill(ds);
             DataTableCollection dc = ds.Tables;
-            return dc[dc.Count - 1].Rows[0][0].ToString();
+            return dc;
         }
 
         public void cmdSQLExecutor(string cmdStr)
