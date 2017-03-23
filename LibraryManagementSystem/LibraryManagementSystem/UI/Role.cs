@@ -59,7 +59,8 @@ namespace LibraryManagementSystem.UI
             bookNameTextbox.Clear();
             statusCombobox.SelectedIndex = -1;
 
-            bookIDTextbox.Text = bllRole.getNewRoleID();
+            string newRoleProc = "Proc_New_Role";
+            bookIDTextbox.Text = bllRole.executeStoreProc(newRoleProc);
             bookNameTextbox.Focus();  // Get ready for next typing
         }
 
@@ -76,18 +77,9 @@ namespace LibraryManagementSystem.UI
         
         private void saveButton_Click(object sender, EventArgs e)
         {
-            string addCMD = "insert into lmsdb.role_master" +
-                                    " (role_id " +
-                                    ", role" +
-                                    ", role_status)" +
-                                    "values" +
-                                    "('" + bookIDTextbox.Text + "', " +
-                                    "'" + bookNameTextbox.Text + "', " +
-                                    "'" + statusCombobox.Text + "')";
-
             if (validate())
             {
-                bllRole.executeSQL(addCMD);
+                bllRole.saveData(bookIDTextbox.Text, bookNameTextbox.Text, statusCombobox.Text);
             }
             else
             {
@@ -111,14 +103,9 @@ namespace LibraryManagementSystem.UI
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            string updateCMD = "update lmsdb.role_master " +
-                    "set role = '" + bookNameTextbox.Text + "', " +
-                    "role_status = '" + statusCombobox.Text + "' " +
-                    "where role_id = '" + bookIDTextbox.Text + "'";
-
             if (validate())
             {
-                bllRole.executeSQL(updateCMD);
+                bllRole.updateData(bookIDTextbox.Text, bookNameTextbox.Text, statusCombobox.Text);
             }
             else
             {
@@ -130,12 +117,9 @@ namespace LibraryManagementSystem.UI
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            string deleteCMD = "delete from lmsdb.role_master " +
-                        "where role_id = '" + bookIDTextbox.Text + "'";
-
             if (validate())
             {
-                bllRole.executeSQL(deleteCMD);
+                bllRole.deleteData(bookIDTextbox.Text);
             }
             else
             {

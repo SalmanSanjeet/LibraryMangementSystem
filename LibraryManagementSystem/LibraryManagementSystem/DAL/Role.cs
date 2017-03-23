@@ -30,10 +30,19 @@ namespace LibraryManagementSystem.DAL
             return dc;
         }
 
-        public void executeSQLCommand(string cmdStr)
+        public bool executeSQLCommand(string cmdStr)
         {
             MySqlCommand cmd = new MySqlCommand(cmdStr, conn.ActiveCon());
-            cmd.ExecuteNonQuery();
+            int affectedRows = cmd.ExecuteNonQuery();
+            
+            if(0 == affectedRows)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public DataTable getRoleDatabaseTable()

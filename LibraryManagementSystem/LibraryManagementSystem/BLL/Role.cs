@@ -17,39 +17,42 @@ namespace LibraryManagementSystem.BLL
             return dalRole.getRoleDatabaseTable();
         }
 
-        // Provide SQL execution interface from business layer.
-        public void executeSQL(string cmdStr)
+        public bool saveData(string roleID, string roleName, string roleStatus)
         {
-            dalRole.executeSQLCommand(cmdStr);
+            string addCMD = "insert into lmsdb.role_master" +
+                                    " (role_id " +
+                                    ", role" +
+                                    ", role_status)" +
+                                    "values" +
+                                    "('" + roleID + "', " +
+                                    "'" + roleName + "', " +
+                                    "'" + roleStatus + "')";
+            return dalRole.executeSQLCommand(addCMD);
         }
 
-        //public void AddRecords(string roleID, string roleName, string roleStatus)
-        //{
-        //    executeSQL("insert into lmsdb.role_master" +
-        //        " (role_id " +
-        //        ", role" +
-        //        ", role_status)" +
-        //        "values" +
-        //        "('" + roleID + "', " +
-        //        "'" + roleName + "', " +
-        //        "'" + roleStatus + "')");
-        //}
-
-        //public void UpdateRecords(string roleID, string roleName, string roleStatus)
-        //{
-        //    executeSQL("update lmsdb.role_master " +
-        //            "set role = '" + roleName + "', " +
-        //            "role_status = '" + roleStatus + "' " +
-        //            "where role_id = '" + roleID + "'");
-        //}
-
-        public string getNewRoleID()
+        public bool updateData(string roleID, string roleName, string roleStatus)
         {
-            string newRoleProcSQLName = "Proc_New_Role";
+            string updateCMD = "update lmsdb.role_master " +
+                    "set role = '" + roleName + "', " +
+                    "role_status = '" + roleStatus + "' " +
+                    "where role_id = '" + roleID + "'";
 
-            DataTableCollection dc = dalRole.executeStoredProc(newRoleProcSQLName);
+            return dalRole.executeSQLCommand(updateCMD);
+        }
+
+        public bool deleteData(string roleID)
+        {
+            string deleteCMD = "delete from lmsdb.role_master " +
+                        "where role_id = '" + roleID + "'";
+
+            return dalRole.executeSQLCommand(deleteCMD);
+        }
+
+        // [[[[Need to be modified.]]]]
+        public string executeStoreProc(string cmd)
+        {
+            DataTableCollection dc = dalRole.executeStoredProc(cmd);
             return dc[dc.Count - 1].Rows[0][0].ToString();
         }
-
     }
 }
