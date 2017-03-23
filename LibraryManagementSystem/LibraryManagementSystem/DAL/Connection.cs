@@ -38,5 +38,10 @@ namespace LibraryManagementSystem.DAL
 
             return msc;
         }
+
+        public MySqlDataAdapter ActiveMDA(string selectCmdText)
+        {
+            return new MySqlDataAdapter(selectCmdText, msc);
+        }
     }
 }

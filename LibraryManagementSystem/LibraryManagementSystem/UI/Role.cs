@@ -13,52 +13,41 @@ namespace LibraryManagementSystem.UI
 {
     public partial class Role : Form
     {
+        private BLL.Role bllRole = new BLL.Role();
+        private DAL.Role dalRole = new DAL.Role();
+
         public Role()
         {
             InitializeComponent();
         }
 
-        private void Role_Load(object sender, EventArgs e)
-        {
-            CreateNew();
-        }
-
-        private void newButton_Click(object sender, EventArgs e)
-        {
-            CreateNew();
-            ViewGrid();
-        }
-
-        private void initializeNewInput()
+        private void resetInputUI()
         {
             bookIDTextbox.Clear();
             bookNameTextbox.Clear();
             statusCombobox.SelectedIndex = -1;
+
+            bookIDTextbox.Text = dalRole.getNewRoleID();  // Get new Role ID.
+            bookNameTextbox.Focus();  // Get ready for next typing
         }
 
-        private void CreateNew()
+        private void Role_Load(object sender, EventArgs e)
         {
-            initializeNewInput();
-
-            string newRoleProcName = "Proc_New_Role";
-            MySqlDataAdapter mda = new DAL.Role().ActiveMDA(newRoleProcName);
-            mda.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-            // Handle multiple sql resutls
-            DataSet ds = new DataSet();
-            mda.Fill(ds);
-            DataTableCollection dc = ds.Tables;
-            bookIDTextbox.Text = dc[dc.Count - 1].Rows[0][0].ToString();
-            
-            // Get ready for next typing
-            bookNameTextbox.Focus();
+            resetInputUI();
         }
 
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            resetInputUI();
+            ViewGrid();
+        }
+        
         private void saveButton_Click(object sender, EventArgs e)
         {
             AddRecords();
             MessageBox.Show("Record inserted successfully!");
-            CreateNew();
+
+            resetInputUI();
             ViewGrid();
         }
 
