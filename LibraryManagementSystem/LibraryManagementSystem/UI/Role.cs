@@ -13,11 +13,44 @@ namespace LibraryManagementSystem.UI
     public partial class Role : Form
     {
         private BLL.Role bllRole = new BLL.Role();
-        //private DAL.Role dalRole = new DAL.Role();
 
         public Role()
         {
             InitializeComponent();
+        }
+
+        private bool validate()
+        {
+            bool res = true;
+
+            if (0 == bookNameTextbox.Text.Length)
+            {
+                res = false;
+            }
+            else if (-1 == statusCombobox.SelectedIndex)
+            {
+                res = false;
+            }
+
+            return res;
+        }
+
+        private void ViewGrid()
+        {
+            DataTable roleTable = bllRole.getRoleTable();
+
+            roleDataGridView.Rows.Clear();
+
+            foreach (DataRow item in roleTable.Rows)
+            {
+                int n = roleDataGridView.Rows.Add();
+                roleDataGridView.Rows[n].Cells[0].Value = (n + 1).ToString();
+                roleDataGridView.Rows[n].Cells[1].Value = item["Role_ID"].ToString();
+                roleDataGridView.Rows[n].Cells[2].Value = item["Role"].ToString();
+                roleDataGridView.Rows[n].Cells[3].Value = item["Role_Status"].ToString();
+            }
+
+            rowCountLabel.Text = "Row Count: " + roleTable.Rows.Count.ToString();
         }
 
         private void resetInputUI()
@@ -43,9 +76,18 @@ namespace LibraryManagementSystem.UI
         
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string addCMD = "insert into lmsdb.role_master" +
+                                    " (role_id " +
+                                    ", role" +
+                                    ", role_status)" +
+                                    "values" +
+                                    "('" + bookIDTextbox.Text + "', " +
+                                    "'" + bookNameTextbox.Text + "', " +
+                                    "'" + statusCombobox.Text + "')";
+
             if (validate())
             {
-                bllRole.AddRecords(bookIDTextbox.Text, bookNameTextbox.Text, statusCombobox.Text);
+                bllRole.executeSQL(addCMD);
             }
             else
             {
@@ -56,36 +98,6 @@ namespace LibraryManagementSystem.UI
 
             resetInputUI();
             ViewGrid();
-        }
-
-        //private void executeSQL(string cmd)
-        //{
-        //    if(validate())
-        //    {
-        //        dalRole.executeSQLCommand(cmd);
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Please check all the fields!");
-        //    }
-        //}
-
-        private void ViewGrid()
-        {
-            DataTable roleTable = bllRole.getRoleTable();
-
-            roleDataGridView.Rows.Clear();
-
-            foreach(DataRow item in roleTable.Rows)
-            {
-                int n = roleDataGridView.Rows.Add();
-                roleDataGridView.Rows[n].Cells[0].Value = (n + 1).ToString();
-                roleDataGridView.Rows[n].Cells[1].Value = item["Role_ID"].ToString();
-                roleDataGridView.Rows[n].Cells[2].Value = item["Role"].ToString();
-                roleDataGridView.Rows[n].Cells[3].Value = item["Role_Status"].ToString();
-            }
-
-            rowCountLabel.Text = "Row Count: " + roleTable.Rows.Count.ToString();
         }
 
         private void roleDataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -131,21 +143,6 @@ namespace LibraryManagementSystem.UI
             }
             
             ViewGrid();
-        }
-
-        private bool validate()
-        {
-            bool res = true;
-
-            if(0 == bookNameTextbox.Text.Length)
-            {
-                res = false;
-            } else if(-1 == statusCombobox.SelectedIndex)
-            {
-                res = false;
-            }
-
-            return res;
         }
     }
 }

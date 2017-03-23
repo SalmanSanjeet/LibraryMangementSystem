@@ -23,25 +23,25 @@ namespace LibraryManagementSystem.BLL
             dalRole.executeSQLCommand(cmdStr);
         }
 
-        public void AddRecords(string roleID, string roleName, string roleStatus)
-        {
-            executeSQL("insert into lmsdb.role_master" +
-                " (role_id " +
-                ", role" +
-                ", role_status)" +
-                "values" +
-                "('" + roleID + "', " +
-                "'" + roleName + "', " +
-                "'" + roleStatus + "')");
-        }
+        //public void AddRecords(string roleID, string roleName, string roleStatus)
+        //{
+        //    executeSQL("insert into lmsdb.role_master" +
+        //        " (role_id " +
+        //        ", role" +
+        //        ", role_status)" +
+        //        "values" +
+        //        "('" + roleID + "', " +
+        //        "'" + roleName + "', " +
+        //        "'" + roleStatus + "')");
+        //}
 
-        public void UpdateRecords(string roleID, string roleName, string roleStatus)
-        {
-            executeSQL("update lmsdb.role_master " +
-                    "set role = '" + roleName + "', " +
-                    "role_status = '" + roleStatus + "' " +
-                    "where role_id = '" + roleID + "'");
-        }
+        //public void UpdateRecords(string roleID, string roleName, string roleStatus)
+        //{
+        //    executeSQL("update lmsdb.role_master " +
+        //            "set role = '" + roleName + "', " +
+        //            "role_status = '" + roleStatus + "' " +
+        //            "where role_id = '" + roleID + "'");
+        //}
 
         public string getNewRoleID()
         {
