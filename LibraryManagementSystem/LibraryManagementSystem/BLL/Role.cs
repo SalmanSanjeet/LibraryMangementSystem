@@ -11,6 +11,10 @@ namespace LibraryManagementSystem.BLL
     {
         private DAL.Role dalRole = new DAL.Role();
 
+        private const string roleDB = "lmsdb.role_master";
+        private const string roleDBID = "role_id";
+        private const string roleDBName = "role";
+        private const string roleDBStatus = "role_status";
         private const string newRoleProc = "Proc_New_Role";
 
         // Provide SQL interface from business layer.
@@ -21,10 +25,10 @@ namespace LibraryManagementSystem.BLL
 
         public bool saveData(string roleID, string roleName, string roleStatus)
         {
-            string addCMD = "insert into lmsdb.role_master" +
-                                    " (role_id " +
-                                    ", role" +
-                                    ", role_status)" +
+            string addCMD = "insert into " + roleDB +
+                                    " (" + roleDBID + " " +
+                                    ", " + roleDBName + "" +
+                                    ", " + roleDBStatus + ")" +
                                     "values" +
                                     "('" + roleID + "', " +
                                     "'" + roleName + "', " +
@@ -34,18 +38,18 @@ namespace LibraryManagementSystem.BLL
 
         public bool updateData(string roleID, string roleName, string roleStatus)
         {
-            string updateCMD = "update lmsdb.role_master " +
-                    "set role = '" + roleName + "', " +
-                    "role_status = '" + roleStatus + "' " +
-                    "where role_id = '" + roleID + "'";
+            string updateCMD = "update " + roleDB + " " +
+                    "set " + roleDBName + " = '" + roleName + "', " +
+                    "" + roleDBStatus + " = '" + roleStatus + "' " +
+                    "where " + roleDBID + " = '" + roleID + "'";
 
             return dalRole.executeSQLCommand(updateCMD);
         }
 
         public bool deleteData(string roleID)
         {
-            string deleteCMD = "delete from lmsdb.role_master " +
-                        "where role_id = '" + roleID + "'";
+            string deleteCMD = "delete from " + roleDB + " " +
+                        "where " + roleDBID + " = '" + roleID + "'";
 
             return dalRole.executeSQLCommand(deleteCMD);
         }
